@@ -69,7 +69,7 @@
               <p>Generate Passwords</p>
               <p>Manage Social Profiles</p>
               <div class="d-grid gap-2">
-                <button type="button" class="btn btn-dark btn-lg" href="social.html">Proceed</button>
+                <button type="button" class="btn btn-dark btn-lg" href="social.html" id="proceedsp">Proceed</button>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@
               <p>Keep Soft Copies of Documents Safe</p>
               <p>Manage Personal Info</p>
               <div class="d-grid gap-2">
-                <button type="button" class="btn btn-dark btn-lg block">Proceed</button>
+                <button type="button" class="btn btn-dark btn-lg block" id="proceedpi">Proceed</button>
               </div>
             </div>
           </div>
@@ -110,7 +110,14 @@
 
   <!-- JavaScript and jQuery links -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-  <script src="js/udb.js" charset="utf-8"></script>
+  <script type="module">
+    proceedsp.addEventListener('click',(e)=>{
+      window.location.replace('http://127.0.0.1:5500/social.html');
+    })
+    proceedpi.addEventListener('click',(e)=>{
+      window.location.replace('http://127.0.0.1:5500/PIM.html');
+    })
+  </script>
 </body>
 
 </html>

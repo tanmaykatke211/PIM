@@ -262,6 +262,23 @@
     document.getElementById('username4').value=user.username;
     document.getElementById('username4').disabled=true
     document.getElementById('id').innerHTML=`Name: ${user.username}`;
+    document.getElementById('inputGroupSelect01').value=user?.basicdetails?.planguage;
+    document.getElementById('inputGroupSelect02').value=user?.basicdetails?.squestion;
+    document.getElementById('securityAnswer').value=user?.basicdetails?.sanswer;
+    document.getElementById('floatingTextarea1').value=user.personaldetails.fname;
+    document.getElementById('floatingTextarea2').value=user.personaldetails.mname;
+    document.getElementById('floatingTextarea3').value=user.personaldetails.lname;
+    document.getElementById('inputGroupSelect04').value=user.personaldetails.occupation;
+    document.getElementById('DOB').value=user.personaldetails.DOB;
+    document.getElementsByName('inlineRadioOptions').value=user.personaldetails.mstatus;
+    document.getElementsByName('btnradio').value=user.personaldetails.gender;
+    document.getElementById('number').value=user.personaldetails.number;
+    document.getElementById('flat').value=user.addressdetails.flat;
+    document.getElementById('street').value=user.addressdetails.street;
+    document.getElementById('area').value=user.addressdetails.area;
+    document.getElementById('pincode').value=user.addressdetails.pincode;
+    document.getElementById('state').value=user.addressdetails.state;
+    document.getElementById('city').value=user.addressdetails.city;
     } else {
       console.log("No data available");
     }
