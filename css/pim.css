@@ -1,0 +1,21 @@
+.pim-nav{
+  margin-bottom: 25px;
+}
+.pim-form-basic{
+  margin: 50px 100px;
+}
+.pim-form-personal {
+  margin: 50px 100px;
+}
+.pim-form-address {
+  margin: 50px 100px;
+}
+.country{
+  display: inline;
+}
+.form-check{
+  display:inline-block;
+}
+div{
+  display: inline-block;
+}
