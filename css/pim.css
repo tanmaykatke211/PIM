@@ -19,3 +19,13 @@
 div{
   display: inline-block;
 }
+#divid{
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+#logout{
+  color: white;
+  background-color: red;
+  border-radius: 15px;
+}

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>PIM</title>
+  <title></title>
   <!-- bootstrap 5 cdn -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -14,6 +14,11 @@
 </head>
 
 <body>
+  <div id="divid">
+    
+    <h3 id="id"></h3>
+    <button id="logout">Log out</button>
+  </div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark nav-2 pim-nav">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"> Personal Info Manager </a>
@@ -47,8 +52,8 @@
             </div>
             <!-- Password -->
             <div class="col-md-6 basic-input">
-              <label for="inputPassword4" class="form-label">Password</label>
-              <input type="password" class="form-control" id="inputPassword4">
+              <label for="username4" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username4">
             </div>
             <!-- preffered languages -->
             <div class="input-group mb-3 basic-input ">
@@ -83,7 +88,7 @@
             <!-- security questions -->
             <div class="input-group mb-3">
               <label class="input-group-text h-100" for="inputGroupSelect01">Security Questions</label>
-              <select class="form-select" id="inputGroupSelect01">
+              <select class="form-select" id="inputGroupSelect02">
                 <option selected>Choose a Security Question</option>
                 <option value="q1">In what city were you born?</option>
                 <option value="q2">What is the name of your favorite pet?</option>
@@ -103,7 +108,7 @@
 
 
             <div class="col-12">
-              <button type="submit" class="btn btn-dark btn-lg">Save</button>
+              <button type="submit" class="btn btn-dark btn-lg" id="savebasic">Save</button>
             </div>
           </form>
         </div>
@@ -114,22 +119,22 @@
           <!-- Names -->
           <form class="row g-3">
             <div class="col-md-4 form-floating">
-              <input type="text" class="form-control form-control-sm" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+              <input type="text" class="form-control form-control-sm" placeholder="Leave a comment here" id="floatingTextarea1"></textarea>
               <label for="First Name">First Name</label>
             </div>
             <div class="col-md-4 form-floating">
-              <input type="text" class="form-control form-control-sm" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+              <input type="text" class="form-control form-control-sm" placeholder="Leave a comment here" id="floatingTextarea2"></textarea>
               <label for="floatingTextarea">Middle Name</label>
             </div>
             <div class="col-md-4 form-floating">
-              <input type="text" class="form-control form-control-sm" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+              <input type="text" class="form-control form-control-sm" placeholder="Leave a comment here" id="floatingTextarea3"></textarea>
               <label for="floatingTextarea">Last Name</label>
             </div>
             <!-- Occupation & DOB -->
             <span class="col-md-6">
               <div class="input-group">
                 <label class="input-group-text h-100" for="inputGroupSelect01">Select Occupation</label>
-                <select class="form-select form-select-sm" id="inputGroupSelect01">
+                <select class="form-select form-select-sm" id="inputGroupSelect04">
                   <option selected>Choose...</option>
                   <option value="1">GOVERNMENT</option>
                   <option value="2">PUBLIC</option>
@@ -144,7 +149,7 @@
             <span class="col-md-6">
               <div class="input-group">
                 <label class="input-group-text" for="inputGroupSelect01">Date of Birth</label>
-                <input type="date" name="DOB" value="DOB">
+                <input type="date" name="DOB" value="DOB" id="DOB">
               </div>
             </span>
             <!-- Marital Status & Country -->
@@ -161,7 +166,7 @@
             <div class="col-md-6 country">
               <div class="input-group mb-3">
                 <label class="input-group-text mh-100" for="inputGroupSelect01">Country</label>
-                <select class="form-select form-select-sm" id="inputGroupSelect01">
+                <select class="form-select form-select-sm" id="inputGroupSelect05">
                   <option selected>Choose...</option>
                   <option value="1">INDIA</option>
                   <option value="2">USA</option>
@@ -191,13 +196,13 @@
             </div>
             <div class="col-md-6">
               <div class="form-floating mb-3 h-50 w-75">
-                <input type="number" class="form-control" id="floatingInput" placeholder="xxxxxxxxxx" maxlength="10" min="10">
-                <label for="floatingInput">Mobile Number</label>
+                <input type="number" class="form-control" id="number" placeholder="xxxxxxxxxx" maxlength="10" min="10">
+                <label for="number">Mobile Number</label>
               </div>
             </div>
 
             <div class="col-12">
-              <button type="submit" class="btn btn-dark btn-lg">Save</button>
+              <button type="submit" class="btn btn-dark btn-lg" id="save2">Save</button>
             </div>
           </form>
         </div>
@@ -206,37 +211,142 @@
       <div class="tab-pane fade pim-form-address" id="contact" role="tabpanel" aria-labelledby="contact-tab">
         <form class="row g-3">
           <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Flat/Door/Block No.</label>
-            <input type="text" class="form-control" id="inputEmail4">
+            <label for="flat" class="form-label">Flat/Door/Block No.</label>
+            <input type="text" class="form-control" id="flat">
           </div>
           <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Street/Lane</label>
-            <input type="text" class="form-control" id="inputPassword4">
+            <label for="street" class="form-label">Street/Lane</label>
+            <input type="text" class="form-control" id="street">
           </div>
           <div class="col-md-6">
-            <label for="inputAddress" class="form-label">Area/Locality</label>
-            <input type="text" class="form-control" id="inputAddress" >
+            <label for="area" class="form-label">Area/Locality</label>
+            <input type="text" class="form-control" id="area" >
           </div>
           <div class="col-md-6">
-            <label for="inputAddress2" class="form-label">Pincode</label>
-            <input type="number" class="form-control" id="inputAddress2">
+            <label for="pincode" class="form-label">Pincode</label>
+            <input type="number" class="form-control" id="pincode">
           </div>
           <div class="col-md-6">
-            <label for="inputCity" class="form-label">State</label>
-            <input type="text" class="form-control" id="inputCity">
+            <label for="state" class="form-label">State</label>
+            <input type="text" class="form-control" id="state">
           </div>
           <div class="col-md-6">
-            <label for="inputZip" class="form-label">City</label>
-            <input type="text" class="form-control" id="inputState">
+            <label for="city" class="form-label">City</label>
+            <input type="text" class="form-control" id="city">
           </div>
           <div class="col-12">
-            <button type="submit" class="btn btn-dark btn-lg">Save</button>
+            <button type="submit" class="btn btn-dark btn-lg" id="save3">Save</button>
           </div>
         </form>
       </div>
     </div>
   </div>
+  <script type="module">
+     import { getDatabase, ref, child, get,set } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+     import {app} from './js/firebase.js'
+     import {getAuth,signOut } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+  
+    //  const database=getDatabase(app);
+    const userId=localStorage.id;
+    const auth = getAuth();
+    
 
+  const dbRef = ref(getDatabase(app));
+  var user={};
+  get(child(dbRef, `users/${userId}`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      console.log(snapshot.val())
+      user=snapshot.val();
+      document.getElementById('inputEmail4').value=user.email;
+    document.getElementById('inputEmail4').disabled=true
+    document.getElementById('username4').value=user.username;
+    document.getElementById('username4').disabled=true
+    document.getElementById('id').innerHTML=`Name: ${user.username}`;
+    } else {
+      console.log("No data available");
+    }
+  }).catch((error) => {
+    console.error(error);
+  });
+  savebasic.addEventListener('click',(e)=>{
+    e.preventDefault()
+    var planguage=document.getElementById('inputGroupSelect01').value;
+    console.log(planguage)
+    var squestion=document.getElementById('inputGroupSelect02').value;
+    var sanswer=document.getElementById('securityAnswer').value;
+    const db = getDatabase(app);
+    set(ref(db, 'users/' + userId+'/basicdetails'), {
+      planguage: planguage,
+      squestion: squestion,
+      sanswer : sanswer
+    });
+    alert("data added")
+  })
+  save2.addEventListener('click',(e)=>{
+    e.preventDefault()
+    var fname=document.getElementById('floatingTextarea1').value;
+    var mname=document.getElementById('floatingTextarea2').value;
+    var lname=document.getElementById('floatingTextarea3').value;
+    var occupation=document.getElementById('inputGroupSelect04').value;
+    var DOB=document.getElementById('DOB').value;
+    console.log(DOB)
+    var ele = document.getElementsByName('inlineRadioOptions');
+    var mstatus;
+            for(var i = 0; i < ele.length; i++) {
+                if(ele[i].checked)
+                mstatus=ele[i].value;
+            }
+    var country=document.getElementById('inputGroupSelect05').value;
+   
+    var ele1 = document.getElementsByName('btnradio');
+    var gender;
+            for(var i = 0; i < ele1.length; i++) {
+                if(ele1[i].checked)
+                gender=ele1[i].value;
+            }
+    var number=document.getElementById('number').value;
+    const db = getDatabase(app);
+    set(ref(db, 'users/' + userId+'/personaldetails'), {
+      fname:fname,
+      mname:mname,
+      lname:lname,
+      occupation:occupation,
+      DOB:DOB,
+      mstatus:mstatus,
+      country:country,
+      gender:gender,
+      number:number
+    });
+    alert("data added")
+  })
+  save3.addEventListener('click',(e)=>{
+    var flat=document.getElementById('flat').value;
+    var street=document.getElementById('street').value;
+    var area=document.getElementById('area').value;
+    var pincode=document.getElementById('pincode').value;
+    var state=document.getElementById('state').value;
+    var city=document.getElementById('city').value;
+    const db = getDatabase(app);
+    set(ref(db, 'users/' + userId+'/addressdetails'), {
+      flat:flat,
+      street:street,
+      area:area,
+      pincode:pincode,
+      state:state,
+      city:city,
+    });
+    alert("data added")
+  })
+  logout.addEventListener('click',(e)=>{
+    signOut(auth).then(() => {
+    // Sign-out successful.
+    localStorage.clear()
+    window.location.replace("http://127.0.0.1:5500/login.html");
+  }).catch((error) => {
+    // An error happened.
+  });
+})
+  </script>
 
 </body>
 

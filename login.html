@@ -63,7 +63,7 @@
           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
           <div class="form-outline flex-fill mb-0">
             <input type="email" id="loginName" class="form-control" />
-            <label class="form-label" for="loginName">Email or username</label>
+            <label class="form-label" for="loginName">Email </label>
           </div>
         </div>
 
@@ -93,7 +93,7 @@
         </div>
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-dark btn-block mb-4">Sign in</button>
+        <button type="submit" id="login" class="btn btn-dark btn-block mb-4">Sign in</button>
 
       </form>
     </div>
@@ -166,12 +166,102 @@
     </div>
 
     <!-- Submit button -->
-    <button type="submit" class="btn btn-dark btn-block mb-3">Sign Up</button>
+    <button type="submit" id="signUp" class="btn btn-dark btn-block mb-3">Sign Up</button>
     </form>
   </div>
   </div>
   <!-- Pills content -->
 
 </body>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+  import { getDatabase,set,ref,update } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  
+
+  // Initialize Firebase
+  import {app} from './js/firebase.js'
+  const database=getDatabase(app);
+  const auth = getAuth();
+  signUp.addEventListener('click',(e)=>{
+    e.preventDefault()
+    var email=document.getElementById('registerEmail').value;
+    var username=document.getElementById('registerUsername').value;
+    var password=document.getElementById('registerPassword').value;
+    var repeatpassword=document.getElementById('registerRepeatPassword').value;
+    if(!document.getElementById('registerCheck').checked){
+      alert("Agree to terms and condition")
+      return;
+    }
+    if(repeatpassword !== password){
+      alert("Password and RepeatPassword are not same.")
+      return;
+    }
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      set(ref(database,'users/'+user.uid),{
+        username:username,
+        email:email,
+
+      })
+      console.log("1")
+      window.location.replace("http://127.0.0.1:5500/PIM.html");
+      localStorage.setItem("id",user.uid);
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(error)
+      // ..
+    });
+    console.log("2")
+  })
+  login.addEventListener('click',(e)=>{
+    e.preventDefault()
+    var email=document.getElementById('loginName').value;
+    var password=document.getElementById('loginPassword').value;
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      const dt=new Date()
+      update(ref(database,'users/'+user.uid),{
+        last_login:dt,
+
+      })
+      // alert("User logged in")
+      localStorage.setItem("id",user.uid);
+      window.location.replace("http://127.0.0.1:5500/PIM.html");
+      // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(error);
+    });
+
+  })
+  const user = auth.currentUser;
+  onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
+</script>
 
 </html>
